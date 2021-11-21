@@ -1,18 +1,14 @@
-import  Express  from "express";
-import { 
-    getAllproducts,
-    createproducts,
-    getproductsById,
-    updateproducts,
-    deleteproducts
- } from "../controlers/products.js";
+import  express  from "express";
+import { getUsers, Register, Login, Logout } from "../controllers/Users.js";
+import { VerifyToken } from "../middleware/VerifyToken.js";
+import { refreshToken } from "../controllers/RefreshToken.js";
 
-const router = Express.Router();
+const router = express.Router();
 
-router.get('/', getAllproducts);
-router.get('/:id', getproductsById);
-router.post('/', createproducts);
-router.patch('/:id', updateproducts);
-router.delete('/:id', deleteproducts);
+router.get('/users',VerifyToken, getUsers);
+router.post('/users', Register);
+router.post('/login', Login);
+router.get('/token', refreshToken);
+router.delete('/logout', Logout);
 
 export default router;

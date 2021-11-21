@@ -1,29 +1,24 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Productslist from "./component/Productslist";
-import Addproduct from "./component/Addproduct";
-import Editproduct from "./component/Editproduct";
-
+import Login from "./component/Login";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Register from "./component/Register";
+import Navbar from "./component/Navbar";
+import Dashboard from "./component/Dashboard";
 function App() {
   return (
-    <Router>
-    <div className="container">
-      <div className="columns">
-        <div className="column is-half is-offset-one-quarter">
-        <Switch>
-          <Route exact path="/">
-           <Productslist/>
-          </Route>
-          <Route  path="/add">
-           <Addproduct/>
-          </Route>
-          <Route path="/edit/:id">
-            <Editproduct/>
-          </Route>
-        </Switch>
-        </div>
-      </div>
-    </div>
-    </Router>
+    <BrowserRouter>
+    <Switch>
+      <Route exact path="/">
+     <Login/>
+      </Route>
+      <Route path="/register">
+     <Register/>
+      </Route>
+      <Route path="/dashboard">
+     <Navbar/>
+     <Dashboard/>
+      </Route>
+    </Switch>
+    </BrowserRouter>
   );
 }
 

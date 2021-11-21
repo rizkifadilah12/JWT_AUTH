@@ -1,9 +1,8 @@
-import  sequelize  from "sequelize";
+import sequelize from "sequelize";
 
-
-const Db = new sequelize('mern_db', 'root','',{
-    host: "localhost",
+const db = new sequelize('auth_db','root','',{
+    host : "localhost",
     dialect: "mysql"
 });
 
-export default Db;
+export default db;
